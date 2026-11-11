@@ -1,0 +1,830 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UNIAVA LIMITED — International technology distribution, sourcing and business development.">
+  <title>UNIAVA LIMITED | Technology & Distribution</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #101c32;
+      --blue: #2864d9;
+      --light-blue: #eaf1ff;
+      --text: #18243a;
+      --muted: #68758a;
+      --white: #ffffff;
+      --background: #f7f9fc;
+      --border: #e3e9f1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: var(--white);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Manrope", sans-serif;
+      line-height: 1.2;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1160px, 90%);
+      margin: auto;
+    }
+
+    /* Navigation */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      height: 82px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: "Manrope", sans-serif;
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--navy);
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+      list-style: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-contact {
+      background: var(--blue);
+      color: white !important;
+      padding: 12px 22px;
+      border-radius: 5px;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      font-size: 27px;
+      cursor: pointer;
+    }
+
+    /* Hero */
+
+    .hero {
+      background:
+        radial-gradient(circle at 80% 35%, rgba(58,112,220,.24), transparent 34%),
+        linear-gradient(120deg, #101c32 0%, #152b4c 100%);
+      color: white;
+      padding: 115px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: #9bbcff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 68px);
+      font-weight: 700;
+      letter-spacing: -2px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #8eb3ff;
+    }
+
+    .hero p {
+      color: #c4d0e2;
+      font-size: 18px;
+      max-width: 650px;
+      line-height: 1.8;
+      margin-bottom: 35px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--blue);
+      color: white;
+      padding: 15px 27px;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: .2s;
+    }
+
+    .button:hover {
+      background: #1c50b8;
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,.4);
+      color: white;
+      padding: 14px 26px;
+      border-radius: 5px;
+      font-weight: 600;
+      margin-left: 12px;
+      font-size: 14px;
+    }
+
+    .button-outline:hover {
+      background: rgba(255,255,255,.1);
+    }
+
+    /* Sections */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-heading {
+      font-size: clamp(30px, 4vw, 42px);
+      letter-spacing: -1px;
+      margin-bottom: 22px;
+      color: var(--navy);
+    }
+
+    .section-description {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 680px;
+      line-height: 1.9;
+    }
+
+    /* About */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 85px;
+      align-items: center;
+    }
+
+    .about-highlight {
+      background: var(--light-blue);
+      padding: 45px;
+      border-radius: 8px;
+      border-left: 4px solid var(--blue);
+    }
+
+    .about-highlight h3 {
+      font-size: 24px;
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+
+    .about-highlight p {
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    /* Numbers */
+
+    .numbers {
+      background: var(--navy);
+      color: white;
+      padding: 55px 0;
+    }
+
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      text-align: center;
+    }
+
+    .number-item h3 {
+      font-size: 28px;
+      margin-bottom: 8px;
+      color: #8eb3ff;
+    }
+
+    .number-item p {
+      color: #c4d0e2;
+      font-size: 14px;
+    }
+
+    /* Services */
+
+    .services {
+      background: var(--background);
+    }
+
+    .services-intro {
+      margin-bottom: 48px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 35px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: .25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(20,40,75,.08);
+      border-color: #b9ccf3;
+    }
+
+    .service-number {
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 22px;
+      letter-spacing: 1px;
+    }
+
+    .service-card h3 {
+      font-size: 21px;
+      margin-bottom: 14px;
+      color: var(--navy);
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    /* Approach */
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .approach-list {
+      list-style: none;
+      margin-top: 25px;
+    }
+
+    .approach-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .approach-list li::before {
+      content: "✓";
+      color: var(--blue);
+      margin-right: 14px;
+      font-weight: 700;
+    }
+
+    .approach-panel {
+      background: var(--navy);
+      padding: 48px;
+      border-radius: 8px;
+      color: white;
+    }
+
+    .approach-panel h3 {
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    .approach-panel p {
+      color: #c4d0e2;
+      line-height: 1.9;
+    }
+
+    /* Contact */
+
+    .contact {
+      background: var(--background);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 70px;
+    }
+
+    .contact-details {
+      margin-top: 35px;
+    }
+
+    .contact-item {
+      margin-bottom: 25px;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--navy);
+    }
+
+    .contact-item p,
+    .contact-item a {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 40px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font: inherit;
+      font-size: 14px;
+      outline: none;
+      background: white;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+    }
+
+    .form-group textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      border: 0;
+      cursor: pointer;
+      width: 100%;
+      font: inherit;
+    }
+
+    /* Footer */
+
+    footer {
+      background: #0b1425;
+      color: white;
+      padding: 35px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-content p {
+      color: #9aa8bd;
+      font-size: 13px;
+    }
+
+    .footer-logo {
+      color: white;
+      font-family: "Manrope", sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 800px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 82px;
+        left: 0;
+        width: 100%;
+        padding: 25px 5%;
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .about-grid,
+      .approach-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 85px 0;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .numbers-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .button-outline {
+        margin: 15px 0 0;
+      }
+
+      .contact-form {
+        padding: 25px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">UNIAVA<span>.</span></a>
+
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#approach">Our Approach</a></li>
+          <li><a href="#contact" class="nav-contact">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">International Business & Technology</span>
+          <h1>Connecting Markets.<br><span>Delivering Technology.</span></h1>
+          <p>
+            UNIAVA LIMITED is an international business partner
+            specialising in technology distribution, global sourcing,
+            commercial development and integrated business solutions.
+          </p>
+          <a href="#services" class="button">Explore Our Services</a>
+          <a href="#contact" class="button-outline">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div>
+          <div class="section-label">About UNIAVA</div>
+          <h2 class="section-heading">A reliable partner in a connected world.</h2>
+          <p class="section-description">
+            UNIAVA LIMITED is a Cyprus-registered international company
+            focused on technology distribution, sourcing and commercial
+            development. We connect manufacturers, suppliers and business
+            partners with opportunities across international markets.
+            <br><br>
+            Our approach combines market understanding, operational
+            efficiency and long-term relationships to create sustainable
+            value for our partners.
+          </p>
+        </div>
+
+        <div class="about-highlight">
+          <h3>Built around partnership and performance.</h3>
+          <p>
+            We work across international supply chains, helping businesses
+            identify opportunities, source products, develop distribution
+            channels and coordinate commercial operations.
+            Our focus is on practical solutions, transparent communication
+            and dependable execution.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="numbers">
+      <div class="container numbers-grid">
+        <div class="number-item">
+          <h3>Global</h3>
+          <p>International business orientation</p>
+        </div>
+        <div class="number-item">
+          <h3>Integrated</h3>
+          <p>Connected commercial solutions</p>
+        </div>
+        <div class="number-item">
+          <h3>Reliable</h3>
+          <p>Long-term business partnerships</p>
+        </div>
+      </div>
+    </div>
+
+    <section id="services" class="services">
+      <div class="container">
+        <div class="services-intro">
+          <div class="section-label">What We Do</div>
+          <h2 class="section-heading">Our Services</h2>
+          <p class="section-description">
+            We support businesses throughout the commercial and
+            distribution process, from sourcing and market development
+            to logistics coordination.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <div class="service-card">
+            <div class="service-number">01 / DISTRIBUTION</div>
+            <h3>Hardware & Software Distribution</h3>
+            <p>
+              Distribution of technology products, hardware and software
+              solutions through international supplier and partner networks.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-number">02 / PROJECTS</div>
+            <h3>Technical & Project Services</h3>
+            <p>
+              Commercial and technical coordination, project support
+              and assistance in identifying suitable technology solutions
+              for business requirements.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-number">03 / DEVELOPMENT</div>
+            <h3>Marketing & Channel Enablement</h3>
+            <p>
+              Market development, partner engagement and channel
+              support designed to strengthen commercial presence
+              and expand business opportunities.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-number">04 / SOURCING</div>
+            <h3>Global Sourcing & Logistics</h3>
+            <p>
+              International supplier coordination, product sourcing
+              and logistics support to facilitate efficient cross-border
+              commercial operations.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="container approach-grid">
+        <div>
+          <div class="section-label">Our Approach</div>
+          <h2 class="section-heading">Creating value beyond transactions.</h2>
+          <p class="section-description">
+            We believe successful international business is built
+            on more than products and prices. It requires market
+            knowledge, dependable partners and consistent execution.
+          </p>
+
+          <ul class="approach-list">
+            <li>International supplier relationships</li>
+            <li>Flexible sourcing capabilities</li>
+            <li>Commercial and technical coordination</li>
+            <li>Market-oriented business development</li>
+            <li>Long-term partnership focus</li>
+          </ul>
+        </div>
+
+        <div class="approach-panel">
+          <h3>Connecting opportunities with execution.</h3>
+          <p>
+            UNIAVA LIMITED aims to simplify complex commercial
+            processes by bringing together suppliers, products,
+            technical expertise and market opportunities.
+            We focus on building reliable connections that support
+            sustainable business growth.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container contact-grid">
+
+        <div>
+          <div class="section-label">Contact</div>
+          <h2 class="section-heading">Let's start a conversation.</h2>
+          <p class="section-description">
+            For business enquiries, partnership opportunities,
+            distribution requests or further information,
+            please contact our team.
+          </p>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <strong>Email</strong>
+              <a href="mailto:info@uniavatech.com">info@uniavatech.com</a>
+            </div>
+
+            <div class="contact-item">
+              <strong>Registered Address</strong>
+              <p>
+                Kalymnou, 1, "Q MERITO", Floor 4,<br>
+                Agios Nikolaos, Kamares,<br>
+                6037, Larnaka, Cyprus
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form"
+              action="https://formsubmit.co/info@uniavatech.com"
+              method="POST">
+
+          <input type="hidden" name="_subject" value="New enquiry from UNIAVA website">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="text" name="_honey" style="display:none">
+
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" placeholder="Company name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Your email address" required>
+          </div>
+
+          <div class="form-group">
+            <label for="enquiry">Enquiry Type</label>
+            <select id="enquiry" name="enquiry">
+              <option value="">Select an enquiry type</option>
+              <option>Distribution</option>
+              <option>Technology Solutions</option>
+              <option>Global Sourcing</option>
+              <option>Business Partnership</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
+          </div>
+
+          <button type="submit" class="button">Send Enquiry</button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-logo">UNIAVA.</div>
+      <p>© <span id="year"></span> UNIAVA LIMITED. All rights reserved.</p>
+      <p>Registered in Cyprus</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("active");
+      menuButton.setAttribute("aria-expanded", isOpen);
+      menuButton.textContent = isOpen ? "✕" : "☰";
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.textContent = "☰";
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
